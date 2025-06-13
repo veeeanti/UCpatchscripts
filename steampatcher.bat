@@ -9,6 +9,7 @@ set "targetdll64=%~dp1\steam_api64.dll"
 set "ogtarget64=%~dp1\steam_api64_o.dll"
 set "urlfile=%~dp0\UnionCrax.url"
 set "blankshortcutmakerbat=%~dp0\Template Make Desktop Shortcut Bat.bat"
+set "nfo=%~dp0\blankUNION.nfo"
 
 if exist "%ogtarget32%" goto:32o
 if exist "%ogtarget64%" goto:64o 
@@ -48,5 +49,9 @@ goto:shortcut
 
 :shortcut
 copy /Y "%blankshortcutmakerbat%" "%~dp1\create_shortcut_on_desktop.bat"
+goto:nfo
+
+:nfo
+copy /Y "%nfo%" "%~dp1\UNION.nfo"
 endlocal
 exit
