@@ -10,6 +10,7 @@ set "emuEOSdll64=%~dp0\EOSSDK-Win64-Shipping.dll"
 set "targetEOSdll64=%~dp1\EOSSDK-Win64-Shipping.dll"
 set "origEOSdll64=%~dp1\EOSSDK-Win64-Shipping_o.dll"
 set "urlfile=%~dp0\UnionCrax.url"
+set "nfo=%~dp0\blankUNION.nfo"
 
 if exist %targetEOSdll32% goto:32
 if exist %origEOSdll32% goto:32o
@@ -27,6 +28,10 @@ goto:url
 
 :url
 copy /Y "%urlfile%" "%~dp1"
+goto:nfo
+
+:nfo
+copy /Y "%nfo%" "%~dp1\UNION.nfo"
 endlocal
 exit
 
