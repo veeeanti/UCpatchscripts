@@ -1,3 +1,5 @@
+Just follow this for the most part.
+
 Use filetypesman to add the batch script to the .dll extension so you can use it in your context menu (right-click menu).
 
 - Open FileTypesMan and scroll down until you find ".dll" (it may take a while of scrolling depends on how long your list comes out to be)
