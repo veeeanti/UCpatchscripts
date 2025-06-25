@@ -10,6 +10,8 @@ set "ogtarget64=%~dp1\steam_api64_o.dll"
 set "urlfile=%~dp0\UnionCrax.url"
 set "blankshortcutmakerbat=%~dp0\Template Make Desktop Shortcut Bat.bat"
 set "nfo=%~dp0\blankUNION.nfo"
+set "genints32=%~dp0\generate_interfaces_x32.exe"
+set "genints64=%~dp0\generate_interfaces_x64.exe"
 
 if exist "%ogtarget32%" goto:32o
 if exist "%ogtarget64%" goto:64o 
@@ -23,12 +25,14 @@ exit
 :32
 ren "%targetdll32%" "steam_api_o.dll"
 copy /Y "%emudll32%" "%targetdll32%"
+start "%genints32%" "%ogtarget32%"
 if exist "%targetdll64%" goto:64
 goto:url
 
 :64
 ren "%targetdll64%" "steam_api64_o.dll"
 copy /Y "%emudll64%" "%targetdll64%"
+start "%genints64%" "%ogtarget64%"
 goto:url
 
 :32o
