@@ -25,14 +25,14 @@ exit
 :32
 ren "%targetdll32%" "steam_api_o.dll"
 copy /Y "%emudll32%" "%targetdll32%"
-start "%genints32%" "%ogtarget32%"
+"%genints32%" "%~dp1\steam_api_o.dll"
 if exist "%targetdll64%" goto:64
 goto:url
 
 :64
 ren "%targetdll64%" "steam_api64_o.dll"
 copy /Y "%emudll64%" "%targetdll64%"
-start "%genints64%" "%ogtarget64%"
+"%genints64%" "%~dp1\steam_api64_o.dll"
 goto:url
 
 :32o
