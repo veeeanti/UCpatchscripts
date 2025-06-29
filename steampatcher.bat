@@ -27,13 +27,13 @@ ren "%targetdll32%" "steam_api_o.dll"
 copy /Y "%emudll32%" "%targetdll32%"
 "%genints32%" "%~dp1\steam_api_o.dll"
 if exist "%targetdll64%" goto:64
-goto:url
+goto:extrastuff
 
 :64
 ren "%targetdll64%" "steam_api64_o.dll"
 copy /Y "%emudll64%" "%targetdll64%"
 "%genints64%" "%~dp1\steam_api64_o.dll"
-goto:url
+goto:extrastuff
 
 :32o
 echo "Warning: steam_api_o.dll found!"
@@ -47,15 +47,9 @@ pause
 endlocal
 exit
 
-:url
+:extrastuff
 copy /Y "%urlfile%" "%~dp1"
-goto:shortcut
-
-:shortcut
 copy /Y "%blankshortcutmakerbat%" "%~dp1\create_shortcut_on_desktop.bat"
-goto:nfo
-
-:nfo
 copy /Y "%nfo%" "%~dp1\UNION.nfo"
 endlocal
 exit
